@@ -36,7 +36,7 @@ const HomePage = () => {
     console.log(searchItem);
 
     const filteredState = warehouseState.warehouses?.filter(
-      (item) => item.name === searchItem
+      (item) => item.name.toLowerCase() === searchItem.toLowerCase()
     );
     console.log(filteredState);
     setwarehouses(filteredState);
@@ -51,7 +51,7 @@ const HomePage = () => {
   console.log("warehouses", warehouseState);
   console.log("city filter after unque", cityFilters);
   return (
-    <div className="w-full h-auto min-h-screen gap-y-1 gap-x-10   bg-lime-950 flex flex-row flex-wrap justify-start items-start ">
+    <div className="w-full h-auto min-h-screen gap-y-1 gap-x-10   bg-lime-950 flex flex-row flex-wrap justify-around items-start ">
       <div className="w-full flex flex-row">
         <div className="w-1/2 h-20 flex flex-row justify-around items-center ">
           <Input
@@ -66,8 +66,13 @@ const HomePage = () => {
           />
           <button
             type="submit"
+            disabled={searchItem == ""}
             onClick={handleSearch}
-            className=" w-48 h-11 mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className={`w-48 h-11 mt-3 text-white bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ${
+              searchItem == ""
+                ? " disabled:opacity-50 "
+                : "opacity-100  hover:bg-blue-800"
+            }`}
           >
             Search
           </button>
@@ -102,7 +107,7 @@ const HomePage = () => {
           {/* <!-- Dropdown menu --> */}
           <div
             id="dropdown"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+            class="z-10 hidden transform translate-x-581 translate-y-140 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
           >
             <ul
               class="py-2 text-sm text-gray-700 dark:text-gray-200"

@@ -36,7 +36,7 @@ const WarehouseDetail = () => {
             <div>
               <span
                 class={
-                  Warehouse.is_registered
+                  state.is_registered
                     ? "habit-status-done-icon"
                     : "habit-status-notdone-icon"
                 }
@@ -51,7 +51,7 @@ const WarehouseDetail = () => {
                       : "habit-status-notdone"
                   }
                 ></span>
-                {state.is_registered ? "Registered" : "not rigistered"}
+                {state.is_registered ? "Registered" : "Unrigistered"}
               </span>
 
               <span
