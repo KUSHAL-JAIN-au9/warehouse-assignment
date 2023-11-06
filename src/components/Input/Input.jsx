@@ -11,10 +11,10 @@ const Input = ({
   editModalId,
 }) => {
   return (
-    <div className="mb-6">
+    <div className="w-64 mt-3">
       <label
         htmlFor={id}
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        className="block mb-2 text-sm font-medium text-white dark:text-gray"
       >
         {label}
       </label>

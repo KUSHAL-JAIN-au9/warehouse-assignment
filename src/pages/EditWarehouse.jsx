@@ -54,7 +54,7 @@ const EditWarehouse = () => {
   console.log("state", state);
   return (
     <div className="w-full h-[30rem] grid place-items-center ">
-      <h1 className="text-2xl font-bold">Edit Warehouse</h1>
+      <h1 className="text-2xl font-bold text-white">Edit Warehouse</h1>
       <Form>
         <Input
           type={"text"}
@@ -100,7 +100,7 @@ const EditWarehouse = () => {
         <button
           type="submit"
           onClick={handleSubmit}
-          className=" w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className=" w-64 mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Edit details
         </button>
