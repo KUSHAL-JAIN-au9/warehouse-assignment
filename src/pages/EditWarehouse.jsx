@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Form from "../components/Form/Form";
 import Input from "../components/Input/Input";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { editWarehouse } from "../redux/warehouses";
+import { ToastSucess } from "../utils/Toast";
 
 const EditWarehouse = () => {
   const { state } = useLocation();
 
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   const [cluster, setcluster] = useState(state.cluster || "");
   const [name, setname] = useState(state.name || "");
@@ -17,10 +19,6 @@ const EditWarehouse = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(cluster);
-    console.log(name);
-    console.log(space);
-    console.log(city);
 
     const payload = {
       id: state.id,
@@ -34,8 +32,11 @@ const EditWarehouse = () => {
       type: state.type,
     };
 
-    console.log("paload to send +====>", payload);
     dispatch(editWarehouse(payload));
+    ToastSucess("warehouse data edited sucessfully !");
+    setTimeout(() => {
+      history("/");
+    }, 2000);
   };
 
   const handleChangeCluster = (e) => {
